@@ -4,11 +4,11 @@ class Game:
         self.player_score = 0
         self.computer_score = 0
         #* ability to change winning score? 
-        self.winning_score = 10
+        self.winning_score = 5
         self.winner = ''
 
-    def is_game_over(self):
-        if self.player_score == self.winning_score or self.computer_score == self.winning_score:
+    def is_playing(self):
+        if self.player_score != self.winning_score and self.computer_score != self.winning_score:
             return True
     # def __str__():
 

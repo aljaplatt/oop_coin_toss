@@ -11,12 +11,12 @@ def main():
     player_1 = Player(input("Please enter your name: "))
     Computer = Player('Computer')
     # print(player_1.name)
-    while not game.is_game_over:
+    while game.is_playing():
         toss = coin.toss_coin()
         print('COIN TOSS:', toss)
 
         player_choice = player_1.coin_choice()
-        print(player_choice)
+        # print(player_choice)
 
         game.update_score(player_choice, toss)
 
