@@ -1,9 +1,18 @@
 class Game:
+    # def __init__(self, winning_score):
     def __init__(self):
         self.player_score = 0
         self.computer_score = 0
+        #* ability to change winning score? 
+        self.winning_score = 10
+        self.winner = ''
 
+    def is_game_over(self):
+        if self.player_score == self.winning_score or self.computer_score == self.winning_score:
+            return True
     # def __str__():
+
+    # Active player - simulate computer making a choice ?? 
     
     def update_score(self, player, toss):
         if player == toss:
