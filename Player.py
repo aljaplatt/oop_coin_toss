@@ -10,7 +10,7 @@ class Player:
             # except ValueError:
             #     print("Missing name")
         self.name = name
-        self.score = 0
+        # self.score = 0
 
     @classmethod
     def coin_choice(cls):
