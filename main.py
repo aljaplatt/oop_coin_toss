@@ -11,11 +11,11 @@ def main():
     # Computer = Player('Computer')
 
     #* set up game
-    game = Game(player.name)
+    game = Game(player.name, int(input("Pick a number of games required to win: ")))
     coin = Coin()
 
     #* Play game
-    game.play_game(player, game, coin)
+    game.play_game(player, coin)
     print(game.print_winner())
 
     
