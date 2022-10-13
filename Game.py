@@ -6,7 +6,7 @@ class Game:
         self.player_score = 0
         self.computer_score = 0
         #* ability to change winning score? 
-        self.winning_score = 5
+        self.winning_score = 3
         self.winner = ''
 
     def is_playing(self):
@@ -15,8 +15,8 @@ class Game:
 
     # def print_score(self):
         
-    def print_score(self):
-        return f"The score is {self.player_name}: {self.player_score}, Computer: {self.computer_score}"
+    def print_score(self, toss_result):
+        return f"The coin landed with {toss_result} facing up. The score is {self.player_name}: {self.player_score}, Computer: {self.computer_score}"
 
     # Active player - simulate computer making a choice ?? 
     

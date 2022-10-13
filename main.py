@@ -20,12 +20,9 @@ def main():
 
         game.update_score(player_choice, toss)
 
-        # print("Ply: ", game.player_score)
-        # print('Com: ', game.computer_score)
-        print(game.print_score())
+        print(game.print_score(toss))
     
     print(game.print_winner())
-
 
 
 #? if this is a module, we only want to call it when we run main, not if it is imported
