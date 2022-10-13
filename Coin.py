@@ -8,3 +8,9 @@ class Coin:
         return random.choice(cls.options)
 
 #* SUPER COIN - CLAWS - PICK REGULAR COIN OR SUPER COIN ? 
+class MegaCoin(Coin):
+    options = ['heads', 'tails', "wings"]
+
+# coin = MegaCoin()
+
+# print(coin.toss_coin())
