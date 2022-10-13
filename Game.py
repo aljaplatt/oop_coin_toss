@@ -6,14 +6,14 @@ class Game:
         self.player_score = 0
         self.computer_score = 0
         #* ability to change winning score? 
-        self.winning_score = 3
+        self.winning_score = 2
         self.winner = ''
+
 
     def is_playing(self):
         if self.player_score != self.winning_score and self.computer_score != self.winning_score:
             return True
 
-    # def print_score(self):
         
     def print_score(self, toss_result):
         return f"The coin landed with {toss_result} facing up. The score is {self.player_name}: {self.player_score}, Computer: {self.computer_score}"
@@ -26,15 +26,16 @@ class Game:
         else:
             self.computer_score += 1
     
+
     def print_winner(self):
         if self.player_score == self.winning_score:
             return f"{self.player_name}, you have won!"
         else:
             return f"Bad luck, the computer has won."
     
-    def play_game(self, player, game, coin):
 
-        while self.game.is_playing():
+    def play_game(self, player, game, coin):
+        while game.is_playing():
             toss = coin.toss_coin()
 
             player_choice = player.coin_choice()
@@ -43,6 +44,7 @@ class Game:
 
             print(game.print_score(toss))
         
-        print(game.print_winner())
+
     
 
+#* BIG GAME? FIRST TO 3 OR FIRST TO 10  
