@@ -1,28 +1,36 @@
 from Game import Game
 from Coin import Coin
 from Player import Player
+from Game import play_game
 
 def main():
+
+    #* Set up player
     # player 1  inherit from comp class ??
-    player_1 = Player(input("Please enter your name: "))
+    player = Player(input("Please enter your name: "))
     Computer = Player('Computer')
 
-    game = Game(player_1.name)
+    #* set up game
+    game = Game(player.name)
     coin = Coin()
-    # print(coin.options)
+
+    play_game(player, game, coin)
     
-    while game.is_playing():
-        toss = coin.toss_coin()
-        # print('COIN TOSS:', toss)
+    #* Play game
+# def play_game(player, game, coin):
 
-        player_choice = player_1.coin_choice()
-        # print(player_choice)
+#     while game.is_playing():
+#         toss = coin.toss_coin()
 
-        game.update_score(player_choice, toss)
+#         player_choice = player.coin_choice()
 
-        print(game.print_score(toss))
+#         game.update_score(player_choice, toss)
+
+#         print(game.print_score(toss))
     
-    print(game.print_winner())
+#     print(game.print_winner())
+
+
 
 
 #? if this is a module, we only want to call it when we run main, not if it is imported

@@ -32,3 +32,17 @@ class Game:
         else:
             return f"Bad luck, the computer has won."
     
+    def play_game(self, player, game, coin):
+
+        while self.game.is_playing():
+            toss = coin.toss_coin()
+
+            player_choice = player.coin_choice()
+
+            game.update_score(player_choice, toss)
+
+            print(game.print_score(toss))
+        
+        print(game.print_winner())
+    
+
