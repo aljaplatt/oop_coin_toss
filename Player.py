@@ -2,6 +2,13 @@
 
 class Player:
     def __init__(self, name):
+        if not name:
+            raise ValueError("Missing name")
+            # try:
+            #     while not name:
+            #         name = input("Please enter a name: ")
+            # except ValueError:
+            #     print("Missing name")
         self.name = name
         self.score = 0
 

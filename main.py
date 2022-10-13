@@ -7,11 +7,23 @@ def main():
 
     #* Set up player
     # player 1  inherit from comp class ??
-    player = Player(input("Please enter your name: "))
+    try:
+        player = Player(input("Please enter your name: "))
+    except ValueError:
+        print("Missing name")
     # Computer = Player('Computer')
 
+def start_game(player):
     #* set up game
     game = Game(player.name, int(input("Pick a number of games required to win: ")))
+    name = input("Please enter a name: ")
+        # try:
+            #     while not name:
+            #         name = input("Please enter a name: ")
+            # except ValueError:
+            #     print("Missing name")
+
+
     coin = Coin()
 
     #* Play game

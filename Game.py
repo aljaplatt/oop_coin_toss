@@ -2,6 +2,7 @@ class Game:
     # self gives you access to the current instance object
     # def __init__(self, winning_score):
     def __init__(self, name, number):
+        # if not name:
         self.player_name = name
         self.player_score = 0
         self.computer_score = 0
