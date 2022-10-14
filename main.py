@@ -2,6 +2,8 @@ from Game import Game
 from c2 import get_coin, Coin
 from Player import Player
 from clear import clear
+from art import coin_art
+import sys
 
 def main():
     new_coin = Coin()
@@ -9,13 +11,21 @@ def main():
     # player 1  inherit from comp class ??
     while True:
         try:
+            print("Welcome to the official Coin Flip World Champioships (CFWF)\n")
+            print(coin_art)
             player = Player(input("Please enter your name: "))
             winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
 
             #* ABSTRACTION ?? 
             while new_coin.coin_choice not in new_coin.coin_options:
                 new_coin.coin_choice = input("For the regular Coin, type 'coin'. Or type 'mega' for the Mega-Coin:  ").lower()
+                
+                if new_coin.coin_choice == 'exit':
+                    print("\nHave a great day!\n")
+                    sys.exit(0)
 
+                if new_coin.coin_choice not in new_coin.coin_options:
+                        print("\nPlease type either 'coin' or 'mega, or 'exit' to quit the game.")
 
             coin = get_coin(new_coin.coin_choice)
 
@@ -26,9 +36,8 @@ def main():
                 clear()
                 print(f"Great, first to {winning_num} correct guesses wins, lets go!")
 
-                # coin = get_coin(coin_choice)
-
                 Game.start_game(player, winning_num, coin)
+                # clear()
                 break
 
     

@@ -1,6 +1,7 @@
+from clear import clear
+
 class Game:
     # self gives you access to the current instance object
-    # def __init__(self, winning_score):
     def __init__(self, name, number):
         if not name:
             raise ValueError("Missing name")
@@ -21,6 +22,7 @@ class Game:
 
         
     def print_score(self, toss_result):
+        clear()
         return f"The coin landed with {toss_result} facing up. The score is {self.player_name}: {self.player_score}, Computer: {self.computer_score}"
 
     
@@ -31,7 +33,7 @@ class Game:
         else:
             self.computer_score += 1
 
-
+    # ? ???
     def computer_turn(coin):
         return coin.toss_coin()
 
