@@ -2,7 +2,7 @@ from Game import Game
 from c2 import get_coin, Coin
 from Player import Player
 from clear import clear
-from art import coin_art
+from art import coin_ascii
 import sys
 
 def main():
@@ -11,8 +11,9 @@ def main():
     # player 1  inherit from comp class ??
     while True:
         try:
+            clear()
             print("Welcome to the official Coin Flip World Champioships (CFWF)\n")
-            print(coin_art)
+            print(coin_ascii)
             player = Player(input("Please enter your name: "))
             winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
 
@@ -37,7 +38,6 @@ def main():
                 print(f"Great, first to {winning_num} correct guesses wins, lets go!")
 
                 Game.start_game(player, winning_num, coin)
-                # clear()
                 break
 
     

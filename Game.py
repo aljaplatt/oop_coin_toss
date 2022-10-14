@@ -1,4 +1,5 @@
 from clear import clear
+from art import coin_art, computer
 
 class Game:
     # self gives you access to the current instance object
@@ -40,8 +41,10 @@ class Game:
 
     def print_winner(self):
         if self.player_score == self.winning_score:
+            print(coin_art)
             return f"{self.player_name}, you have won!"
         else:
+            print(computer)
             return f"Bad luck, the computer has won."
     
 
