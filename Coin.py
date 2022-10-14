@@ -18,9 +18,9 @@ class MegaCoin(Coin):
 # print(coin.toss_coin())
 
 
-def get_coin(coin_choice):
-    # print(coin_choice)
-    if coin_choice == 'coin':
-        return Coin()
-    else:
-        return MegaCoin()
+# def get_coin(coin_choice):
+#     # print(coin_choice)
+#     if coin_choice == 'coin':
+#         return RegularCoin()
+#     else:
+#         return MegaCoin()
