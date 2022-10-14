@@ -69,17 +69,14 @@ class Game:
         active_player = 'player'
 
         while self.is_playing():
-            # PLAYER TURN
+
             toss = coin.toss_coin()
-            # print('TOSS:', toss)
-            # print('AP:', active_player)
+
             if active_player == 'player':
-            
                 player_choice = player.coin_choice()
                 self.update_score(player_choice, toss, active_player)
                 time.sleep(1)
                 active_player = 'computer'
-                # print('AP2:', active_player)
             else:
                 computer_choice = coin.toss_coin()
                 print(f"The computer guesses...")
@@ -87,20 +84,9 @@ class Game:
                 print(f"... {computer_choice}")
                 self.update_score(computer_choice, toss, active_player)
                 active_player = 'player'
-                # print('AP3:', active_player)
 
             time.sleep(2)
             print('TOSS:', self.print_score(toss))
             time.sleep(3)
-            # if self.active_player == 'player':
-            #     self.active_player = 'computer'
-            # else:
-            #     self.active_player == 'player'
 
-            # # COMPUTER TURN
-            # toss = coin.toss_coin()
-            # computer_choice = self.computer_turn()
-            # self.update_score(computer_choice, toss)
-            # print(self.print_score(toss))
-            # self.active_player = 'player'
         
