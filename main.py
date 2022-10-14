@@ -14,6 +14,8 @@ def main():
             clear()
             print("Welcome to the official Coin Flip World Champioships (CFWF)\n")
             print(coin_ascii)
+            
+            #* Instantiate player object 
             player = Player(input("Please enter your name: "))
             winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
 
