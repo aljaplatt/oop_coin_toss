@@ -56,11 +56,11 @@ class Game:
 
         game = Game(player.name, num)
         #* Play game
-        game.play_game(player, coin)
+        game.__play_game(player, coin)
         print(game.print_winner())
 
-
-    def play_game(self, player, coin):
+    # can only be called from method inside class - like above
+    def __play_game(self, player, coin):
         while self.is_playing():
             toss = coin.toss_coin()
 
