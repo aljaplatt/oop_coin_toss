@@ -1,5 +1,4 @@
-# class Computer:
-
+from clear import clear
 class Player:
     def __init__(self, name):
         if not name:
@@ -9,6 +8,7 @@ class Player:
 
     @classmethod
     def coin_choice(cls):
+        # clear()
         return input('Guess the coin toss: ')
 
 

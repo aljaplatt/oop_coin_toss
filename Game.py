@@ -1,5 +1,6 @@
-from clear import clear
+
 from art import coin_art, computer
+import time
 
 class Game:
     # self gives you access to the current instance object
@@ -14,6 +15,7 @@ class Game:
         #* ability to change winning score? 
         self.winning_score = number
         self.winner = ''
+        self.active_player = 'player'
         
 
     #* Checks if player or computer has reached the winning score 
@@ -23,20 +25,23 @@ class Game:
 
         
     def print_score(self, toss_result):
-        clear()
+        # clear()
         return f"The coin landed with {toss_result} facing up. The score is {self.player_name}: {self.player_score}, Computer: {self.computer_score}"
 
     
-    def update_score(self, player, toss):
-        if player == toss:
+    def update_score(self, player_choice, toss, active_player):
+    
+        if player_choice == toss and active_player == 'player':
             self.player_score += 1
         #TODO: UPDATE TO REFLECT COMPUTER CHOICE 
-        else:
+        elif player_choice == toss and active_player == 'computer':
             self.computer_score += 1
 
     # ? ???
     def computer_turn(coin):
-        return coin.toss_coin()
+        guess = coin.toss_coin()
+        print(f"The computer guesses... {guess}")
+        return guess
 
 
     def print_winner(self):
@@ -61,14 +66,41 @@ class Game:
 
     # can only be called from method inside class - like above
     def __play_game(self, player, coin):
-        while self.is_playing():
-            toss = coin.toss_coin()
+        active_player = 'player'
 
-            player_choice = player.coin_choice()
-            self.update_score(player_choice, toss)
-            #TODO: UPDATE TO REFLECT COMPUTER CHOICE 
+        while self.is_playing():
+            # PLAYER TURN
+            toss = coin.toss_coin()
+            # print('TOSS:', toss)
+            # print('AP:', active_player)
+            if active_player == 'player':
+            
+                player_choice = player.coin_choice()
+                self.update_score(player_choice, toss, active_player)
+                time.sleep(1)
+                active_player = 'computer'
+                # print('AP2:', active_player)
+            else:
+                computer_choice = coin.toss_coin()
+                print(f"The computer guesses...")
+                time.sleep(2)
+                print(f"... {computer_choice}")
+                self.update_score(computer_choice, toss, active_player)
+                active_player = 'player'
+                # print('AP3:', active_player)
+
+            time.sleep(2)
+            print('TOSS:', self.print_score(toss))
+            time.sleep(3)
+            # if self.active_player == 'player':
+            #     self.active_player = 'computer'
+            # else:
+            #     self.active_player == 'player'
+
+            # # COMPUTER TURN
+            # toss = coin.toss_coin()
             # computer_choice = self.computer_turn()
             # self.update_score(computer_choice, toss)
-
-            print(self.print_score(toss))
+            # print(self.print_score(toss))
+            # self.active_player = 'player'
         
