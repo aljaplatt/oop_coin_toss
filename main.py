@@ -12,7 +12,7 @@ def main():
     while True:
         try:
             clear()
-            print("Welcome to the official Coin Flip World Champioships (CFWF)\n")
+            print("Welcome to the official Coin Flip World Championships (CFWF)\n")
             print(coin_ascii)
             
             #* Instantiate player object 
