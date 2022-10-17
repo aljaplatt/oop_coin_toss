@@ -80,13 +80,13 @@ class Game:
             else:
                 computer_choice = coin.toss_coin()
                 print(f"The computer guesses...")
-                time.sleep(2)
+                time.sleep(1)
                 print(f"... {computer_choice}")
                 self.update_score(computer_choice, toss, active_player)
                 active_player = 'player'
 
             time.sleep(2)
             print('TOSS:', self.print_score(toss))
-            time.sleep(3)
+            time.sleep(2)
 
         
