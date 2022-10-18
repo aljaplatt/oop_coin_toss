@@ -23,6 +23,8 @@ class Game:
         #? maybe better inside Coin class ?  
         if len(coin.options) > 2:
             print(f"You chose the Mega Coin, your options are HEADS, TAILS or WINGS")
+        elif 'heads' not in coin.options:
+            print(f"You chose the Random Coin, GOOD LUCK!.\nYour options could be SWORD, FIREBALL, CLAWS or FANGS")
         else:
             print(f"You chose the regular coin, your options are HEADS or TAILS.")
 
@@ -39,8 +41,10 @@ class Game:
         while self.is_playing():
 
             toss = coin.toss_coin()
+            print(toss)
 
             if self.active_player == 'player':
+                print(coin.options)
                 player_coin_choice = player.prompt_coin_choice()
                 self.update_score(player_coin_choice, toss, self.active_player)
                 time.sleep(1)

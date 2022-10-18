@@ -1,5 +1,5 @@
 from Game import Game
-from c2 import MegaCoin, Coin
+from c2 import MegaCoin, Coin, RandomCoin
 from Player import Player
 from clear import clear
 from art import coin_ascii
@@ -20,7 +20,7 @@ def main():
             winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
 
             while player.coin_choice not in Coin.coin_options:
-                player.coin_choice = input("For the regular Coin, type 'coin'. Or type 'mega' for the Mega-Coin:  ").lower()
+                player.coin_choice = input(" For the regular Coin, type 'coin'.\n For the mega Coin, type 'mega'. \n Or type 'random' for the Random-Coin.\n Type 'exit' to quit:  ").lower()
                 
                 if player.coin_choice == 'exit':
                     print("\nHave a great day!\n")
@@ -31,8 +31,11 @@ def main():
 
             if player.coin_choice == "coin":
                 coin = Coin.get_coin()
-            else: 
+            elif player.coin_choice == "mega":
                 coin = MegaCoin.get_coin()
+            else:
+                coin = RandomCoin.get_coin()
+                print(coin.options)
 
         except ValueError:
                 print("Missing value")
