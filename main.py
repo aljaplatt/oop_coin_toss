@@ -17,7 +17,7 @@ def main():
         try:
             player = Player(input("Please enter your name: "))
             clear()
-            winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
+            winning_num = int(input(f"Hey {player.name}, pick the number of correct guesses required to win: "))
 
             while player.coin_choice not in Coin.coin_options:
                 player.coin_choice = input(" For the regular Coin, type 'coin'.\n For the mega Coin, type 'mega'. \n Or type 'random' for the Random-Coin.\n Type 'exit' to quit:  ").lower()
@@ -41,7 +41,8 @@ def main():
                 print("Missing value")
         else:
             if player and winning_num and player.coin_choice:
-                print(f"Great, first to {winning_num} correct guesses wins, lets go!")
+                clear()
+                print(f"Great, the first to {winning_num} correct guesses wins, lets go!")
 
                 #? player and coin objects passed in to  
                 Game.start_game(player, winning_num, coin)

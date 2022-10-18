@@ -14,7 +14,6 @@ class Game:
         self.computer_score = 0
         #* ability to change winning score? 
         self.winning_score = number
-        self.winner = ''
         self.active_player = 'player'
 
 
@@ -41,26 +40,40 @@ class Game:
         while self.is_playing():
 
             toss = coin.toss_coin()
-            print(toss)
 
-            if self.active_player == 'player':
-                print(coin.options)
+            # if self.active_player == 'player':
+            # print(coin.options)
+            if self.active_player == "player":
                 player_coin_choice = player.prompt_coin_choice()
                 self.update_score(player_coin_choice, toss, self.active_player)
-                time.sleep(1)
-                self.active_player = 'computer'
             else:
                 computer_choice = coin.toss_coin()
                 print(f"The computer guesses...")
                 time.sleep(1)
                 print(f"... {computer_choice}")
                 self.update_score(computer_choice, toss, self.active_player)
-                self.active_player = 'player'
+            time.sleep(1)
+            self.switch_active_player()
+                #? switch for function - next player - allow for more players
+                # self.active_player = 'computer'
+            # else:
+            #     computer_choice = coin.toss_coin()
+            #     print(f"The computer guesses...")
+            #     time.sleep(1)
+            #     print(f"... {computer_choice}")
+            #     self.update_score(computer_choice, toss, self.active_player)
+            #     self.active_player = 'player'
 
-            time.sleep(2)
+            time.sleep(1)
             print('TOSS:', self.print_score(toss))
             time.sleep(2)
         
+    def switch_active_player(self):
+        if self.active_player == 'player':
+            self.active_player = 'computer'
+        else:
+            self.active_player = 'player'
+
 
     #* Checks if player or computer has reached the winning score 
     def is_playing(self):
@@ -91,7 +104,7 @@ class Game:
             return f"{self.player_name}, you have won!"
         else:
             print(computer)
-            return f"Bad luck, the computer has won."
+            return f"Bad luck {self.player_name}, the computer has won 😤."
     
 
 
