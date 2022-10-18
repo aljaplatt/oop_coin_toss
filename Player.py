@@ -18,11 +18,23 @@ class Player:
     def name(self, name):
         print("setting name...")
         self._name = name
+    
+    @property
+    def coin_choice(self):
+        print("getting coin_choice...")
+        return self._coin_choice
+
+
+    @coin_choice.setter
+    def coin_choice(self, coin_choice):
+        print("setting coin_choice...")
+        self._coin_choice = coin_choice
+    
+
 
 
     @classmethod
     def prompt_coin_choice(cls):
-        # clear()
         return input('Guess the coin toss: ')
     
 

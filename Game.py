@@ -3,7 +3,7 @@ from art import coin_art, computer
 import time
 
 class Game:
-    # self gives you access to the current instance object
+
     def __init__(self, name, number):
         if not name:
             raise ValueError("Missing name")
@@ -74,7 +74,7 @@ class Game:
         elif player_choice == toss and active_player == 'computer':
             self.computer_score += 1
 
-    # ? ???
+
     def computer_turn(coin):
         guess = coin.toss_coin()
         print(f"The computer guesses... {guess}")
