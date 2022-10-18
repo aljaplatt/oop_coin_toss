@@ -5,6 +5,7 @@ from clear import clear
 from art import coin_ascii
 import sys
 
+
 def main():
     
     new_coin = Coin()
@@ -13,11 +14,9 @@ def main():
     print("Welcome to the official Coin Flip World Championships (CFWF)\n")
     print(coin_ascii)
 
+    
     while True:
         try:
-            # clear()
-            # print("Welcome to the official Coin Flip World Championships (CFWF)\n")
-            # print(coin_ascii)
             
             #* Instantiate player object 
             player = Player(input("Please enter your name: "))
@@ -47,6 +46,7 @@ def main():
                 clear()
                 print(f"Great, first to {winning_num} correct guesses wins, lets go!")
 
+                #? player and coin objects passed in to  
                 Game.start_game(player, winning_num, coin)
                 break
 
