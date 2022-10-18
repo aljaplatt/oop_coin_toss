@@ -1,5 +1,5 @@
 from Game import Game
-from c2 import get_coin, Coin
+from c2 import MegaCoin, Coin
 from Player import Player
 from clear import clear
 from art import coin_ascii
@@ -37,13 +37,16 @@ def main():
                         print("\nPlease type either 'coin' or 'mega, or 'exit' to quit the game.")
 
             #? Move get coin to inside coin class
-            coin = get_coin(new_coin.coin_choice)
+            if new_coin.coin_choice == "coin":
+                coin = Coin.get_coin()
+            else: 
+                coin = MegaCoin.get_coin()
 
         except ValueError:
                 print("Missing value")
         else:
             if player and winning_num and new_coin.coin_choice:
-                clear()
+                # clear()
                 print(f"Great, first to {winning_num} correct guesses wins, lets go!")
 
                 #? player and coin objects passed in to  
