@@ -1,62 +1,43 @@
 import random
 
 class Coin:
+    coin_options = ('coin', 'mega')
+    
     def __init__(self):
         self.coin_choice = ''
-        self.coin_options = ('coin', 'mega')
-    #? class method vs instance method ??
-    @classmethod
-    def toss_coin(cls):
-        return random.choice(cls.options)
+        self.options = ['heads', 'tails']
 
-    # @classmethod
-    # def new(cls, coin):
-    #     if coin == cls.__class__.__name__:
-    #         return cls()
-
-    # def get_coin(coin_choice):
-    # # print(coin_choice)
-    #     return new(cls)
+    #? class method vs instance method ?? - static method? 
     
-class RegularCoin(Coin):
-    options = ['heads', 'tails']
+    def toss_coin(self):
+        return random.choice(self.options)
+    
+    def get_coin():
+        return Coin()
 
-#* SUPER COIN - CLAWS - PICK REGULAR COIN OR SUPER COIN ? 
+
+#* Regular and Mega are inheriting toss_coin method from Coin 
+
+# #? Change regular to random coin ??  
+# class RegularCoin(Coin):
+#     options = ['heads', 'tails']
+
+
+#* POLYMORPHISM - HAVE GET_COIN METHOD RETURN DIFF COIN W/ DIFF OPTIONS
 class MegaCoin(Coin):
-    options = ['heads', 'tails', "wings"]
+    def __init__(self):
+        self.options = ['heads', 'tails', "wings"]
 
-def get_coin(coin_choice):
-    # print(coin_choice)
-    # options = ('coin', 'mega')
-    # if coin_choice not in options:
-    #     return False
-    if coin_choice == 'coin':
-        return RegularCoin()
-    else:
+
+    def get_coin():
         return MegaCoin()
 
 
 # def get_coin(coin_choice):
-#     print(coin_choice)
+#     print('===PRINT=== GC:', coin_choice)
 #     if coin_choice == 'coin':
-#         return Coin()
+#         return RegularCoin()
 #     else:
 #         return MegaCoin()
 
 
-# class Coin:
-#     def __init__(self):
-#         self.options = ['heads', 'tails']
-    
-#     def toss_coin(self):
-#         return random.choice(self.options)
-
-# #* SUPER COIN - CLAWS - PICK REGULAR COIN OR SUPER COIN ? 
-# class MegaCoin(Coin):
-#     def __init__(self):
-#         super().__init__()
-#         self.options = ['heads', 'tails', "wings"]
-
-# coin = MegaCoin()
-
-# print(coin.toss_coin())
