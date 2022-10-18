@@ -4,6 +4,7 @@ class Player:
         if not name:
             raise ValueError("Missing name")
         self.name = name.title()
+        self.coin_choice = ""
     
 
     @property
@@ -20,7 +21,7 @@ class Player:
 
 
     @classmethod
-    def coin_choice(cls):
+    def prompt_coin_choice(cls):
         # clear()
         return input('Guess the coin toss: ')
     

@@ -41,8 +41,8 @@ class Game:
             toss = coin.toss_coin()
 
             if self.active_player == 'player':
-                player_choice = player.coin_choice()
-                self.update_score(player_choice, toss, self.active_player)
+                player_coin_choice = player.prompt_coin_choice()
+                self.update_score(player_coin_choice, toss, self.active_player)
                 time.sleep(1)
                 self.active_player = 'computer'
             else:

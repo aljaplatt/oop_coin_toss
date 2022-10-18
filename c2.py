@@ -1,9 +1,10 @@
 import random
 
 class Coin:
+    coin_options = ('coin', 'mega')
+    
     def __init__(self):
         self.coin_choice = ''
-        self.coin_options = ('coin', 'mega')
         self.options = ['heads', 'tails']
 
     #? class method vs instance method ?? - static method? 
