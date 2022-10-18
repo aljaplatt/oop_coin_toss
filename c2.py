@@ -4,6 +4,7 @@ class Coin:
     def __init__(self):
         self.coin_choice = ''
         self.coin_options = ('coin', 'mega')
+        
     #? class method vs instance method ??
     @classmethod
     def toss_coin(cls):

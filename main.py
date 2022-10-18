@@ -6,20 +6,27 @@ from art import coin_ascii
 import sys
 
 def main():
+    
     new_coin = Coin()
-    #* Set up player
-    # player 1  inherit from comp class ??
+    
+    clear()
+    print("Welcome to the official Coin Flip World Championships (CFWF)\n")
+    print(coin_ascii)
+
     while True:
         try:
-            clear()
-            print("Welcome to the official Coin Flip World Championships (CFWF)\n")
-            print(coin_ascii)
+            # clear()
+            # print("Welcome to the official Coin Flip World Championships (CFWF)\n")
+            # print(coin_ascii)
             
             #* Instantiate player object 
             player = Player(input("Please enter your name: "))
+            clear()
             winning_num = int(input(f"Hey {player.name}, pick a number of games required to win: "))
 
-            #* ABSTRACTION ?? 
+            #* ABSTRACTION ?? - is referencing an object property like this bad practice?
+            #? should I have a method that returns this property? 
+            # getter setter 
             while new_coin.coin_choice not in new_coin.coin_options:
                 new_coin.coin_choice = input("For the regular Coin, type 'coin'. Or type 'mega' for the Mega-Coin:  ").lower()
                 
@@ -30,6 +37,7 @@ def main():
                 if new_coin.coin_choice not in new_coin.coin_options:
                         print("\nPlease type either 'coin' or 'mega, or 'exit' to quit the game.")
 
+            #? Move get coin to inside coin class
             coin = get_coin(new_coin.coin_choice)
 
         except ValueError:
@@ -42,8 +50,6 @@ def main():
                 Game.start_game(player, winning_num, coin)
                 break
 
-    
-#? if this is a module, we only want to call it when we run main, not if it is imported
-# safety - only run main if you run the file main from the cli
+
 if __name__ == "__main__":
     main()
