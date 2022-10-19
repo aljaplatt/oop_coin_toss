@@ -1,4 +1,4 @@
-from art import coin_art, computer
+from helper.art import coin_art, computer
 import time
 
 

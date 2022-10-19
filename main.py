@@ -1,8 +1,8 @@
-from Game import Game
-from c2 import MegaCoin, Coin, RandomCoin
-from Player import Player
-from clear import clear
-from art import coin_ascii
+from classes.Game import Game
+from classes.c2 import MegaCoin, Coin, RandomCoin
+from classes.Player import Player
+from helper.clear import clear
+from helper.art import coin_ascii
 import sys
 
 

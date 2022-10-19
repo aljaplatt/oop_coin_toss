@@ -1,4 +1,4 @@
-from clear import clear
+from helper.clear import clear
 
 
 class Player:
