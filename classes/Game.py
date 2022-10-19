@@ -1,7 +1,6 @@
 from helper.art import coin_art, computer
 import time
 
-
 class Game:
     def __init__(self, name, number):
         if not name:
@@ -15,9 +14,7 @@ class Game:
         self.winning_score = number
         self.active_player = "player"
 
-    # ? Class method - does not need access to self / instance properties
     def start_game(player, num, coin):
-        # ? maybe better inside Coin class ?
         if len(coin.options) > 2:
             print(f"You chose the Mega Coin, your options are HEADS, TAILS or WINGS")
         elif "heads" not in coin.options:
@@ -27,16 +24,12 @@ class Game:
         else:
             print(f"You chose the regular coin, your options are HEADS or TAILS.")
 
-        # ? create game object and pass in player name and num of games
-        # access to game properties / self / methods
+        
         game = Game(player.name, num)
-        # * Play game hidden from main.py
         game.__play_game(player, coin)
         print(game.print_winner())
 
-    # private method - can only be called from method inside class - like above
     def __play_game(self, player, coin):
-        # check winning number hasn't been met.
         while self.is_playing():
 
             toss = coin.toss_coin()
@@ -52,7 +45,6 @@ class Game:
                 self.update_score(computer_choice, toss, self.active_player)
             time.sleep(1)
             self.switch_active_player()
-            # ? switch for function - next player - allow for more players
 
             time.sleep(1)
             print("TOSS:", self.print_score(toss))

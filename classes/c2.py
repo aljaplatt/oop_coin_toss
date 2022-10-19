@@ -8,7 +8,6 @@ class Coin:
         self.coin_choice = ""
         self.options = ["heads", "tails"]
 
-    # ? class method vs instance method ?? - static method?
 
     def toss_coin(self):
         return random.choice(self.options)
@@ -16,8 +15,6 @@ class Coin:
     def get_coin():
         return Coin()
 
-
-# * Regular and Mega are inheriting toss_coin method from Coin
 class RandomCoin(Coin):
     def __init__(self):
         self.options = []
@@ -36,8 +33,6 @@ class RandomCoin(Coin):
         coin.generate_options()
         return coin
 
-
-# * POLYMORPHISM - HAVE GET_COIN METHOD RETURN DIFF COIN W/ DIFF OPTIONS
 class MegaCoin(Coin):
     def __init__(self):
         self.options = ["heads", "tails", "wings"]
